@@ -2,7 +2,7 @@ const API_URL = "https://crudcrud.com/api/e42d2a99b5d445bd82f8e8e31ac45c98/Busbo
 
 let editId = null;
 
-// ================= CREATE & UPDATE =================
+
 async function handleFormSubmit(event) {
     event.preventDefault();
 
@@ -31,7 +31,7 @@ async function handleFormSubmit(event) {
     }
 }
 
-// ================= READ =================
+
 async function fetchUsers() {
     try {
         const res = await axios.get(API_URL);
@@ -41,7 +41,6 @@ async function fetchUsers() {
     }
 }
 
-// ================= DISPLAY =================
 function displayUsers(users) {
     const userList = document.getElementById("userList");
     userList.innerHTML = "";
@@ -58,9 +57,7 @@ function displayUsers(users) {
 
         userList.appendChild(li);
     });
-}
 
-// ================= DELETE =================
 async function deleteUser(id) {
     try {
         await axios.delete(`${API_URL}/${id}`);
@@ -70,7 +67,6 @@ async function deleteUser(id) {
     }
 }
 
-// ================= EDIT =================
 async function editUser(id) {
     try {
         const res = await axios.get(`${API_URL}/${id}`);
@@ -88,7 +84,7 @@ async function editUser(id) {
     }
 }
 
-// ================= FILTER =================
+//FILTER
 async function filterUsers() {
     try {
         const selectedBus = document.getElementById("filterBus").value;
@@ -106,5 +102,5 @@ async function filterUsers() {
     }
 }
 
-// Page Load pe data fetch ho
+
 window.onload = fetchUsers;
